@@ -1,0 +1,14 @@
+[Unit]
+Description=3G Modem
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/usr/bin/pon
+ExecStop=/usr/bin/poff
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+

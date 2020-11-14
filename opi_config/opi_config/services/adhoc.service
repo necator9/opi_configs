@@ -1,0 +1,15 @@
+[Unit]
+Description=Adhoc routing
+
+[Service]
+Type=forking
+PIDFile=/var/run/routing_daemon.pid
+#ExecStartPre=/root/opi_config/boot/configure_interface.sh wlan0
+ExecStart=/usr/share/adhoc_routing/adhocd start
+ExecStop=/usr/share/adhoc_routing/adhocd stop
+ExecStartPost=/root/opi_config/boot/configure_interface.sh adhoc0
+StandardOutput=tty
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target  

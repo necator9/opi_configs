@@ -1,0 +1,12 @@
+[Unit]
+Description=Start watchdog counter
+
+[Service]
+Type=simple
+ExecStart=/root/opi_config/watchdogs/opi_arduino_watchdog.py
+KillSignal=SIGINT
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
